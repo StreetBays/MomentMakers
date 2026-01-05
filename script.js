@@ -5,26 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-links li');
 
     if (menuToggle) {
-        // Robust toggle handler
+        // Simple, robust toggle with no complex event bubbling handling
         menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent immediate bubbling
+            e.preventDefault(); // Stop default button behavior
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('toggle');
-
-            // Toggle body scroll for better UX
-            if (navLinks.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
         });
 
-        // Close when clicking outside
+        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('toggle');
-                document.body.style.overflow = '';
+            // Only act if menu is open
+            if (navLinks.classList.contains('active')) {
+                // If click is NOT inside navLinks AND NOT on menuToggle
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('toggle');
+                }
             }
         });
 
@@ -33,8 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 menuToggle.classList.remove('toggle');
-                document.body.style.overflow = '';
-                links.forEach(l => l.style.animation = '');
             });
         });
     }
