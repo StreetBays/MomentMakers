@@ -160,20 +160,17 @@ img {
     display: flex;
     gap: 5px;
     font-weight: 700;
-    line-height: 0.9;
-    /* Tighter line height */
+    line-height: 1.1;
+    /* Standard spacing */
 }
 
 .logo-sub {
     font-size: 0.55em;
-    /* Slightly smaller for better proportion */
     letter-spacing: 2px;
-    /* Wider tracking looks more premium */
-    margin-top: -3px;
-    /* Pull up tighter */
+    margin-top: 0;
+    /* No negative margin */
     white-space: nowrap;
     text-transform: uppercase;
-    /* Optional stylization */
     font-weight: 500;
 }
 
