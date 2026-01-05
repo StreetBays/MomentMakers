@@ -885,11 +885,30 @@ footer {
 
     .navbar .nav-links {
         display: none;
-        /* Mobile menu needed */
+        /* JS toggles this to flex */
+        position: absolute;
+        top: 100%;
+        /* Below navbar */
+        left: 0;
+        width: 100%;
+        background: rgba(254, 249, 245, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        gap: 2rem;
+    }
+
+    .navbar .nav-links li {
+        width: 100%;
+        text-align: center;
     }
 
     .menu-toggle {
         display: block;
+        z-index: 1001;
+        /* Ensure above menu if needed */
     }
 
     .contact-info,
