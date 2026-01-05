@@ -883,32 +883,61 @@ footer {
         grid-row: auto;
     }
 
+    .navbar-content {
+        /* Ensure content doesn't overflow or overlap */
+        position: relative;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+        /* Smaller font on mobile */
+        gap: 8px;
+        /* Reduce gap */
+        z-index: 1002;
+        /* Above menu */
+        max-width: 75%;
+        /* Leave room for hamburger */
+    }
+
+    .logo img {
+        height: 40px !important;
+        /* Smaller logo image */
+    }
+
+    .logo span {
+        flex-wrap: wrap;
+        /* Allow text to wrap if very small screen */
+    }
+
     .navbar .nav-links {
         display: none;
         /* JS toggles this to flex */
-        position: absolute;
-        top: 100%;
-        /* Below navbar */
+        position: fixed;
+        /* Fixed to viewport to avoid scroll issues */
+        top: 70px;
+        /* Adjust based on new navbar height */
         left: 0;
-        width: 100%;
+        width: 100vw;
+        height: calc(100vh - 70px);
+        /* Full height */
         background: rgba(254, 249, 245, 0.98);
         flex-direction: column;
         align-items: center;
-        padding: 2rem 0;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-        gap: 2rem;
+        justify-content: flex-start;
+        /* Align to top */
+        padding-top: 3rem;
+        box-shadow: none;
+        overflow-y: auto;
     }
 
-    .navbar .nav-links li {
-        width: 100%;
-        text-align: center;
+    .navbar .nav-links.active {
+        display: flex;
     }
 
     .menu-toggle {
         display: block;
-        z-index: 1001;
-        /* Ensure above menu if needed */
+        z-index: 1002;
+        /* Match logo z-index */
     }
 
     .contact-info,
