@@ -150,13 +150,24 @@ img {
 }
 
 .logo span {
-    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* Adjust gap for split words */
 }
 
-.text-gold {
-    color: var(--secondary);
+.brand-red {
+    color: #C21807;
+}
+
+.brand-green {
+    color: #2E8B57;
+}
+
+.brand-gold {
+    color: #FFD700;
     font-weight: 400;
-    /* Optional contrast */
+    margin-left: 5px;
 }
 
 .logo .dot {
