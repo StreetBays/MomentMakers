@@ -5,26 +5,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-links li');
 
     if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            // Toggle Navigation Class
+        // Robust toggle handler
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent immediate bubbling
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('toggle');
 
-            // Manage Body Scroll
+            // Toggle body scroll for better UX
             if (navLinks.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
             }
+        });
 
-            // Animate Links
-            links.forEach((link, index) => {
-                if (link.style.animation) {
-                    link.style.animation = '';
-                } else {
-                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                }
-            });
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('toggle');
+                document.body.style.overflow = '';
+            }
         });
 
         // Close menu when a link is clicked
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 menuToggle.classList.remove('toggle');
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
                 links.forEach(l => l.style.animation = '');
             });
         });
