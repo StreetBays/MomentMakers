@@ -160,8 +160,8 @@ img {
     display: flex;
     gap: 5px;
     font-weight: 700;
-    line-height: 1.1;
-    /* Standard spacing */
+    line-height: 1.6;
+    /* Increased spacing */
 }
 
 .logo-sub {
