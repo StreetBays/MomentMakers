@@ -139,13 +139,18 @@ img {
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.5rem; /* Adjusted for existing layout */
+    font-size: 1.5rem;
+    /* Adjusted for existing layout */
     font-weight: 700;
     color: var(--primary);
     display: flex;
     align-items: center;
     gap: 15px;
     text-decoration: none;
+}
+
+.logo span {
+    color: #FFD700;
 }
 
 .logo .dot {
@@ -376,6 +381,7 @@ img {
 }
 
 /* Gallery Section */
+/* Gallery Section */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -384,58 +390,100 @@ img {
 }
 
 .gallery-item {
+    background-color: transparent;
+    perspective: 1000px;
+    /* Remove overflow:hidden from here */
     border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    background-color: #eee;
-    background-size: cover;
-    background-position: center;
+    /* Keep radius on container */
     cursor: pointer;
-    box-shadow: var(--shadow-soft);
 }
 
-.gallery-item::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 25, 47, 0.4);
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.gallery-item:hover::after {
-    opacity: 1;
-}
-
+/* Specific Grid Item Placement - Keep these on the container */
 .item-1 {
     grid-column: 1 / 3;
     grid-row: 1 / 3;
-    background-image: url('assets/gallery1.png');
-}
-
-.item-2 {
-    background-image: url('assets/gallery2.png');
-}
-
-.item-3 {
-    background-image: url('assets/gallery3.png');
 }
 
 .item-4 {
     grid-column: 3 / 5;
-    background-image: url('assets/gallery4.png');
 }
 
-/* Contact Section */
-.contact-wrapper {
-    display: flex;
-    background: var(--white);
-    border-radius: 20px;
+/* Flip Card Inner Container */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: var(--shadow-soft);
+    border-radius: 15px;
+}
+
+.gallery-item:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Faces */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Front Face */
+.flip-card-front {
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Back Face */
+.flip-card-back {
+    background: linear-gradient(135deg, var(--primary), #1a2f4b);
+    color: var(--secondary);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid var(--secondary);
+}
+
+.flip-card-back h3 {
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.flip-card-back p {
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments for Gallery */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 300px);
+        /* Taller rows for mobile */
+    }
+
+    .item-1 {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .item-4 {
+        grid-column: auto;
+        grid-row: auto;
+    }
 }
 
 .contact-info {
