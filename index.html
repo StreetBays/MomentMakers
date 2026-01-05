@@ -93,27 +93,75 @@
                 <p>Tailored hosting solutions for every occasion</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('wedding')">
                     <div class="icon">🎤</div>
                     <h3>Wedding Anchoring</h3>
                     <p>From the Baraat to the Varmala, keeping the energy high and the traditions alive.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('sangeet')">
                     <div class="icon">🕺</div>
                     <h3>Sangeet Sandhya</h3>
                     <p>Choreography management, audience interaction, and non-stop entertainment.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('corporate')">
                     <div class="icon">🤝</div>
                     <h3>Corporate Events</h3>
                     <p>Professional, crisp, and engaging hosting for conferences and award nights.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('private')">
                     <div class="icon">🎂</div>
                     <h3>Private Parties</h3>
                     <p>Birthdays, Anniversaries, and Get-togethers made special with personalized fun.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Service Title</h2>
+            <div id="modalBody">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>What People Say</h2>
+                <p>Words of appreciation from our happy clients</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"રવિભાઈનું એન્કરિંગ ખુબ જ સરસ હતું. અમારા લગ્ન પ્રસંગને એમણે યાદગાર બનાવી દીધો.
+                        મહેમાનોને ખુબ મજા આવી!"</p>
+                    <h4>- Patel Family</h4>
+                    <span class="event-type">Wedding Event</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Absolutely electric energy! Ravi knows exactly how to read the crowd. Our Sangeet
+                        was a massive hit thanks to him."</p>
+                    <h4>- Rahul & Anjali</h4>
+                    <span class="event-type">Sangeet Sandhya</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"ખુબ જ સુંદર અને મર્યાદાવાળું સંચાલન. અમારા પરિવારના દરેક સભ્યને રવિભાઈનો સ્વભાવ
+                        ગમી ગયો."</p>
+                    <h4>- Shah Family</h4>
+                    <span class="event-type">Ring Ceremony</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Very professional for our corporate annual meet. Crisp announcements and
+                        maintained the flow perfectly."</p>
+                    <h4>- TechVision Corp</h4>
+                    <span class="event-type">Corporate Event</span>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 

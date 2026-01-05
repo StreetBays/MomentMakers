@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Toggle Navigation
             const isActive = navLinks.style.display === 'flex';
             navLinks.style.display = isActive ? 'none' : 'flex';
-            
+
             // Hamburger Animation
             menuToggle.classList.toggle('toggle');
-            
+
             // Animate Links
             if (!isActive) {
                 // Add fade-in animation to links if opening
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
                 });
             } else {
-                 links.forEach((link) => {
+                links.forEach((link) => {
                     link.style.animation = '';
                 });
             }
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // Robust check: matches href="#id"
             if (a.getAttribute('href').includes(current) && current !== '') {
-               // Optional: specific active style if needed, currently using hover style
-               // a.style.color = 'var(--secondary)'; 
+                // Optional: specific active style if needed, currently using hover style
+                // a.style.color = 'var(--secondary)'; 
             }
         });
 
@@ -74,6 +74,85 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Modal Logic ---
+    const modal = document.getElementById("serviceModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+    const closeBtn = document.querySelector(".close-modal");
+
+    const serviceDetails = {
+        wedding: {
+            title: "Wedding Anchoring",
+            details: [
+                "Pre-Wedding Event Hosting (Haldi, Mehndi)",
+                "Baraat Procession Coverage",
+                "Varmala Concept & Themes",
+                "Couple Entry Coordination",
+                "Reception Hosting & Guest Interaction"
+            ]
+        },
+        sangeet: {
+            title: "Sangeet Sandhya",
+            details: [
+                "Scripting & Flow Management",
+                "Choreography Coordination",
+                "Couple & Family Games",
+                "DJ Interaction & Hype",
+                "Awards & Performances Management"
+            ]
+        },
+        corporate: {
+            title: "Corporate Events",
+            details: [
+                "Product Launches & Brand Activations",
+                "Award Ceremonies & R&R Programs",
+                "Team Building Activities",
+                "Seminars & Dealer Meets",
+                "Formal Protocol Managment"
+            ]
+        },
+        private: {
+            title: "Private Parties",
+            details: [
+                "Birthday Party Themes",
+                "Anniversary Celebrations",
+                "Get-Togethers & Reunions",
+                "Surprise Planning",
+                "Interactive Games & Fun Activities"
+            ]
+        }
+    };
+
+    window.openModal = function (serviceType) {
+        const info = serviceDetails[serviceType];
+        if (info) {
+            modalTitle.textContent = info.title;
+            modalBody.innerHTML = `<ul class="detail-list">${info.details.map(item => `<li>${item}</li>`).join('')}</ul>`;
+            modal.style.display = "block";
+            // Trigger reflow
+            void modal.offsetWidth;
+            modal.classList.add("show");
+        }
+    };
+
+    if (closeBtn) {
+        closeBtn.onclick = function () {
+            modal.classList.remove("show");
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.classList.remove("show");
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+    }
+
     // --- Intersection Observer for Scroll Animations ---
     const faders = document.querySelectorAll('.service-card, .about-text, .about-image, .section-title, .gallery-item');
 
@@ -82,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: "0px 0px -50px 0px"
     };
 
-    const appearOnScroll = new IntersectionObserver(function(
+    const appearOnScroll = new IntersectionObserver(function (
         entries,
         appearOnScroll
     ) {
@@ -95,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     },
-    appearOptions);
+        appearOptions);
 
     faders.forEach(fader => {
         fader.style.opacity = '0'; // Set initial state for JS-enabled browsers
