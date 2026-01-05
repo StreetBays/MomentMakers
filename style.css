@@ -713,31 +713,48 @@ img {
 
 .service-card:hover,
 .service-card.expanded {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     border-color: var(--secondary);
+}
+
+.service-card.expanded {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.service-summary {
+    flex: 1;
 }
 
 .service-details {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-out, opacity 0.5s ease;
     opacity: 0;
+    transition: opacity 0.4s ease;
     margin-top: 0;
+    flex: 1;
+    border-left: 1px solid #eee;
+    padding-left: 3rem;
+    display: none;
+    /* Hide initially to prevent layout issues */
 }
 
 .service-card.expanded .service-details {
-    max-height: 500px;
-    /* Arbitrary large height */
+    max-height: none;
     opacity: 1;
-    margin-top: 1.5rem;
+    display: block;
+    margin-top: 0;
 }
 
 .detail-list {
     list-style: none;
     text-align: left;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
 }
 
 .detail-list li {
