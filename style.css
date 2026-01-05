@@ -152,7 +152,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centers 'by Ravi' relative to 'Moment Makers' */
+    justify-content: center;
     line-height: 1;
 }
 
@@ -160,15 +160,21 @@ img {
     display: flex;
     gap: 5px;
     font-weight: 700;
+    line-height: 0.9;
+    /* Tighter line height */
 }
 
 .logo-sub {
-    font-size: 0.6em;
-    /* Smaller relative to main text */
-    letter-spacing: 1px;
-    margin-top: 2px;
-    /* Small gap */
+    font-size: 0.55em;
+    /* Slightly smaller for better proportion */
+    letter-spacing: 2px;
+    /* Wider tracking looks more premium */
+    margin-top: -3px;
+    /* Pull up tighter */
     white-space: nowrap;
+    text-transform: uppercase;
+    /* Optional stylization */
+    font-weight: 500;
 }
 
 .logo span {
