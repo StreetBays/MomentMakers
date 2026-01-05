@@ -148,15 +148,31 @@ img {
     text-decoration: none;
 }
 
-.logo span {
+.logo-text-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 5px;
-    /* Adjust gap for split words */
+    /* Centers 'by Ravi' relative to 'Moment Makers' */
+    line-height: 1;
 }
 
-.brand-red {
-    color: #C21807;
+.logo-main {
+    display: flex;
+    gap: 5px;
+    font-weight: 700;
+}
+
+.logo-sub {
+    font-size: 0.6em;
+    /* Smaller relative to main text */
+    letter-spacing: 1px;
+    margin-top: 2px;
+    /* Small gap */
+    white-space: nowrap;
+}
+
+.logo span {
+    /* Removed old styles */
 }
 
 .brand-green {
