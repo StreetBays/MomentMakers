@@ -139,9 +139,13 @@ img {
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Adjusted for existing layout */
     font-weight: 700;
     color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
 }
 
 .logo .dot {
