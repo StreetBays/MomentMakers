@@ -93,40 +93,65 @@
                 <p>Tailored hosting solutions for every occasion</p>
             </div>
             <div class="services-grid">
-                <div class="service-card" onclick="openModal('wedding')">
+                <div class="service-card" onclick="toggleService(this)">
                     <div class="icon">🎤</div>
                     <h3>Wedding Anchoring</h3>
                     <p>From the Baraat to the Varmala, keeping the energy high and the traditions alive.</p>
+                    <div class="service-details">
+                        <ul class="detail-list">
+                            <li>Pre-Wedding Event Hosting (Haldi, Mehndi)</li>
+                            <li>Baraat Procession Coverage</li>
+                            <li>Varmala Concept & Themes</li>
+                            <li>Couple Entry Coordination</li>
+                            <li>Reception Hosting & Guest Interaction</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card" onclick="openModal('sangeet')">
+                <div class="service-card" onclick="toggleService(this)">
                     <div class="icon">🕺</div>
                     <h3>Sangeet Sandhya</h3>
                     <p>Choreography management, audience interaction, and non-stop entertainment.</p>
+                    <div class="service-details">
+                        <ul class="detail-list">
+                            <li>Scripting & Flow Management</li>
+                            <li>Choreography Coordination</li>
+                            <li>Couple & Family Games</li>
+                            <li>DJ Interaction & Hype</li>
+                            <li>Awards & Performances Management</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card" onclick="openModal('corporate')">
+                <div class="service-card" onclick="toggleService(this)">
                     <div class="icon">🤝</div>
                     <h3>Corporate Events</h3>
                     <p>Professional, crisp, and engaging hosting for conferences and award nights.</p>
+                    <div class="service-details">
+                        <ul class="detail-list">
+                            <li>Product Launches & Brand Activations</li>
+                            <li>Award Ceremonies & R&R Programs</li>
+                            <li>Team Building Activities</li>
+                            <li>Seminars & Dealer Meets</li>
+                            <li>Formal Protocol Managment</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card" onclick="openModal('private')">
+                <div class="service-card" onclick="toggleService(this)">
                     <div class="icon">🎂</div>
                     <h3>Private Parties</h3>
                     <p>Birthdays, Anniversaries, and Get-togethers made special with personalized fun.</p>
+                    <div class="service-details">
+                        <ul class="detail-list">
+                            <li>Birthday Party Themes</li>
+                            <li>Anniversary Celebrations</li>
+                            <li>Get-Togethers & Reunions</li>
+                            <li>Surprise Planning</li>
+                            <li>Interactive Games & Fun Activities</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Detailed Services Modal -->
-    <div id="serviceModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modalTitle">Service Title</h2>
-            <div id="modalBody">
-                <!-- Content injected by JS -->
-            </div>
-        </div>
-    </div>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="section-padding">
