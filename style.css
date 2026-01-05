@@ -3,7 +3,7 @@
     --secondary: #FFD700;
     --accent: #E94560;
     --text-dark: #1A1A1A;
-    --text-light: #F5F7FA;
+    --text-light: hsl(26.67deg 81.82% 97.84%);
     --white: #FFFFFF;
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
@@ -286,19 +286,49 @@ img {
     position: relative;
 }
 
-.img-frame {
+/* Image Stack */
+.img-stack {
+    position: relative;
     width: 100%;
     height: 500px;
-    background-color: #ddd;
-    /* Placeholder color before image load */
+}
+
+.stack-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 20px;
-    overflow: hidden;
+    transition: all 0.5s ease;
     box-shadow: 20px 20px 0 var(--secondary);
     border: 2px solid var(--primary);
-    background-image: url('assets/about_ravi.png');
-    /* Will be generated */
-    background-size: cover;
-    background-position: center;
+}
+
+/* Bottom Image (Initially Hidden/Behind) */
+.bottom-img {
+    transform: rotate(5deg) scale(0.95);
+    z-index: 1;
+    opacity: 0.8;
+}
+
+/* Top Image (Front) */
+.top-img {
+    z-index: 2;
+    transform: rotate(0deg);
+}
+
+/* Hover Effect */
+.about-image:hover .top-img {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.about-image:hover .bottom-img {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+    z-index: 2;
 }
 
 .pre-title {
