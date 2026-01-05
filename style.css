@@ -86,13 +86,14 @@ img {
 
 .btn-outline {
     background: transparent;
-    border: 2px solid var(--secondary);
-    color: var(--secondary);
+    border: 2px solid var(--primary);
+    color: var(--primary);
 }
 
 .btn-outline:hover {
-    background: var(--secondary);
-    color: var(--primary);
+    background: var(--primary);
+    color: var(--secondary);
+    border-color: var(--primary);
 }
 
 .section-padding {
@@ -116,8 +117,6 @@ img {
     margin: 0 auto;
 }
 
-
-/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -534,6 +533,15 @@ img {
     }
 }
 
+/* Contact Section */
+.contact-wrapper {
+    display: flex;
+    background: var(--primary);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
 .contact-info {
     flex: 1;
     background: var(--primary);
@@ -542,6 +550,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .contact-info h2 {
@@ -585,17 +594,25 @@ img {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     font-family: var(--font-body);
     transition: var(--transition);
+    background: rgba(255, 255, 255, 0.05);
+    /* Slight tint for inputs on navy */
+    color: var(--white);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary);
-    background: #fdfdfd;
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .full-width {
