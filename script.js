@@ -6,24 +6,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
-            // Toggle Navigation
-            const isActive = navLinks.style.display === 'flex';
-            navLinks.style.display = isActive ? 'none' : 'flex';
-
-            // Hamburger Animation
+            // Toggle Navigation Class
+            navLinks.classList.toggle('active');
             menuToggle.classList.toggle('toggle');
 
-            // Animate Links
-            if (!isActive) {
-                // Add fade-in animation to links if opening
-                links.forEach((link, index) => {
-                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                });
+            // Manage Body Scroll
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
             } else {
-                links.forEach((link) => {
-                    link.style.animation = '';
-                });
+                document.body.style.overflow = 'auto';
             }
+
+            // Animate Links
+            links.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+        });
+
+        // Close menu when a link is clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('toggle');
+                document.body.style.overflow = 'auto';
+                links.forEach(l => l.style.animation = '');
+            });
         });
     }
 
